@@ -5,14 +5,46 @@
 
 import 'dart:async';
 
+import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 
-class BicolorIcon {
-  static const MethodChannel _channel =
-      const MethodChannel('bicolor_icon');
+class BicolorIcon extends StatelessWidget {
+  BicolorIcon({
+    this.iconData,
+    this.iconSize,
+    this.rate,
+    this.beginAlignment,
+    this.endAlignment,
+    this.beginColor,
+    this.endColor
+  });
+  final IconData iconData;
+  final double iconSize;
+  final double rate;
+  final Alignment beginAlignment;
+  final Alignment endAlignment;
+  final Color beginColor;
+  final Color endColor;
 
-  static Future<String> get platformVersion async {
-    final String version = await _channel.invokeMethod('getPlatformVersion');
-    return version;
+  @override
+  Widget build(BuildContext context) {
+    return ShaderMask(
+      shaderCallback: (bounds) => LinearGradient(
+        begin: beginAlignment,
+        end: endAlignment,
+        colors: [beginColor, endColor],
+        stops: [rate, rate],
+        tileMode: TileMode.mirror,
+      ).createShader(bounds),
+      child: Container(
+        child: Center(
+          child: Icon(
+            iconData,
+            size: iconSize,
+            color: Colors.white,
+          ),
+        ),
+      ),
+    );
   }
 }
