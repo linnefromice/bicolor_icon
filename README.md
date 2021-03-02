@@ -4,7 +4,6 @@ Flutter library for creating two tone icon, you can customize color/ratio/direct
 
 [![Pub](https://img.shields.io/pub/v/bicolor_icon.svg)](https://pub.dartlang.org/packages/bicolor_icon) 
 [![License](https://img.shields.io/badge/licence-MIT-orange.svg)](https://github.com/linnefromice/bicolor_icon/blob/master/LICENSE)
-[![GitHub code size in bytes](https://img.shields.io/github/languages/code-size/linnefromice/bicolor_icon.svg)](https://github.com/linnefromice/bicolor_icon)
 
 ![image](images/sample1.png)
 
