@@ -1,8 +1,8 @@
 name: bicolor_icon
 description: Flutter library for creating two tone icon, you can customize color/ratio/direction etc...
 version: 0.0.1
-author:
-homepage:
+author: Linnefromice <linnefromice@gmail.com>
+repository: https://github.com/linnefromice/bicolor_icon
 
 environment:
   sdk: ">=2.7.0 <3.0.0"
