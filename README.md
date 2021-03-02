@@ -2,17 +2,31 @@
 
 Flutter library for creating two tone icon, you can customize color/ratio/direction etc...
 
+[![Pub](https://img.shields.io/pub/v/bicolor_icon.svg)](https://pub.dartlang.org/packages/bicolor_icon) 
+[![License](https://img.shields.io/badge/licence-MIT-orange.svg)](https://github.com/linnefromice/bicolor_icon/blob/master/LICENSE)
+[![GitHub code size in bytes](https://img.shields.io/github/languages/code-size/linnefromice/bicolor_icon.svg)](https://github.com/linnefromice/bicolor_icon)
+
+![image](images/sample1.png)
+
 ## Getting Started
 
-This project is a starting point for a Flutter
-[plug-in package](https://flutter.dev/developing-packages/),
-a specialized package that includes platform-specific implementation code for
-Android and/or iOS.
-
-For help getting started with Flutter, view our
-[online documentation](https://flutter.dev/docs), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
-
-The plugin project was generated without specifying the `--platforms` flag, no platforms are currently supported.
-To add platforms, run `flutter create -t plugin --platforms <platforms> .` under the same
-directory. You can also find a detailed instruction on how to add platforms in the `pubspec.yaml` at https://flutter.dev/docs/development/packages-and-plugins/developing-packages#plugin-platforms.
+Add package from github by adding the following to your pubspec.yaml, pub publication is added later.
+````
+  dependencies:
+    bicolor_icon: ^0.0.1
+````
+Import the library in your file:
+````
+import 'package:bicolor_icon/bicolor_icon.dart';
+````
+Use the BicolorIcon like this: 
+````
+BicolorIcon(
+  iconData: Icons.favorite,
+  iconSize: 50,
+  rate: 0.5,
+  beginAlignment: Alignment.centerLeft,
+  beginColor: Colors.pink,
+  endColor: Colors.white
+)
+````
