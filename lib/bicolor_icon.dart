@@ -1,18 +1,51 @@
-// You have generated a new plugin project without
-// specifying the `--platforms` flag. A plugin project supports no platforms is generated.
-// To add platforms, run `flutter create -t plugin --platforms <platforms> .` under the same
-// directory. You can also find a detailed instruction on how to add platforms in the `pubspec.yaml` at https://flutter.dev/docs/development/packages-and-plugins/developing-packages#plugin-platforms.
+import 'package:flutter/material.dart';
 
-import 'dart:async';
+final Map<Alignment, Alignment> _reverseAlignment = {
+  Alignment.topLeft: Alignment.bottomRight,
+  Alignment.topCenter: Alignment.bottomCenter,
+  Alignment.topRight: Alignment.bottomLeft,
+  Alignment.centerLeft: Alignment.centerRight,
+  Alignment.centerRight: Alignment.centerLeft,
+  Alignment.bottomLeft: Alignment.topRight,
+  Alignment.bottomCenter: Alignment.topCenter,
+  Alignment.bottomRight: Alignment.topLeft,
+};
 
-import 'package:flutter/services.dart';
+class BicolorIcon extends StatelessWidget {
+  BicolorIcon({
+    @required this.iconData,
+    @required this.iconSize,
+    @required this.rate,
+    @required this.beginAlignment,
+    @required this.beginColor,
+    @required this.endColor
+  });
+  final IconData iconData;
+  final double iconSize;
+  final double rate;
+  final Alignment beginAlignment;
+  final Color beginColor;
+  final Color endColor;
 
-class BicolorIcon {
-  static const MethodChannel _channel =
-      const MethodChannel('bicolor_icon');
-
-  static Future<String> get platformVersion async {
-    final String version = await _channel.invokeMethod('getPlatformVersion');
-    return version;
+  @override
+  Widget build(BuildContext context) {
+    return ShaderMask(
+      shaderCallback: (bounds) => LinearGradient(
+        begin: beginAlignment,
+        end: _reverseAlignment[beginAlignment],
+        colors: [beginColor, endColor],
+        stops: [rate, rate],
+        tileMode: TileMode.mirror,
+      ).createShader(bounds),
+      child: Container(
+        child: Center(
+          child: Icon(
+            iconData,
+            size: iconSize,
+            color: Colors.white,
+          ),
+        ),
+      ),
+    );
   }
 }
