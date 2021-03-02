@@ -12,7 +12,7 @@ Flutter library for creating two tone icon, you can customize color/ratio/direct
 Add package from github by adding the following to your pubspec.yaml, pub publication is added later.
 ````
 dependencies:
-  bicolor_icon: ^0.0.1
+  bicolor_icon: ^0.0.2
 ````
 Import the library in your file:
 ````
